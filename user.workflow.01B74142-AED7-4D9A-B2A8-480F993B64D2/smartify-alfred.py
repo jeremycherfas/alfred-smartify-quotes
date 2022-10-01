@@ -18,13 +18,16 @@ def smartify(a):
 	a = re.sub("\n'","\n\u2018",a)    # opening single on new line
 	a = re.sub("\"'","\"\u2018",a)    # opening single after double
 	a = re.sub("\\('",'\\(\u2018',a)  # opening single after + before round bracket
-	a = re.sub("'\\(","\u2018\\(",a)  # Tricky! double escape for escaped literal!
+	a = re.sub("'\\(","\u2018\\(",a)  # 
+	a = re.sub(" '"," \u2018",a)      # opening single after space
 	a = re.sub("'","\u2019",a)        # closing single, apostrophe
 
 	a = re.sub("\n\"","\n\u201c",a)   # opening double on new line
 	a = re.sub("-\"","-\u201c",a)     # opening double after dash
 	a = re.sub('\\(\"','(\u201c',a)   # opening double after + before round bracket
 	a = re.sub('\"\\(','\u201c(',a)   # 
+	a = re.sub(" \""," \u201c",a)     # opening double after space
+
 	a = re.sub("\"","\u201d",a)       # closing double
 
 	a = re.sub("--","\u2014",a)       # dashes to em dash
